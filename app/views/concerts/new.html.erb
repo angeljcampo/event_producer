@@ -1,0 +1,17 @@
+<h1 class= "text-left mt-3 h2">Insert your concert</h1>
+
+<% if @concert.errors.any? %>
+  <div id="card border-0">
+    <p>This form contains <%= pluralize(@concert.errors.count, "error") %>:</p>
+    <ul>
+    <% @concert.errors.full_messages.each do |msg| %>
+      <li class="text-danger"><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= render 'form', concert: @concert %>
+
+<%= link_to 'Back', concerts_path, class:"btn btn-success text-light btn-sm" %>

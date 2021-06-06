@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center font-weight-bold mb-3">Now you can watch all our concerts</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr class="text-center">
+      <th>Name</th>
+      <th>Place</th>
+      <th>Audience</th>
+      <th>Date</th>
+      <th>Duration</th>
+      <th>Group</th>
+      <th>Options</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @concerts.each do |concert| %>
+    <tr>
+      <td><%= concert.name %></td>
+      <td><%= concert.place %></td>
+      <td><%= concert.audience %></td>
+      <td><%= concert.date %></td>
+      <td><%= concert.duration %></td>
+      <td><%= concert.group %></td>
+      <td>
+        <%= link_to 'Show', concert, class:"btn btn-success text-light btn-sm" %>
+      </td>
+      <td>
+        <%= link_to 'Edit', edit_concert_path(concert), class:"btn btn-primary btn-sm"
+        %>
+      </td>
+      <td>
+        <%= link_to 'Destroy', concert, method: :delete, data: { confirm: 'Are
+        you sure?' }, class:"btn btn-danger text-light btn-sm" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+
